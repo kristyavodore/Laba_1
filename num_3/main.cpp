@@ -75,13 +75,15 @@ int main(){
     Complex n2(1.4, 1.5);
     Complex n3(1.6, 1.7);
     Complex n4(0, 0);
+    Complex n5;
     n4=n1+n1;
     n4.Print();
 
-    //n1.Module_1();
-    //cout<<n1.Module_2()<<endl;
-    //cout<<n1.Argument()<<endl;
+    n1.Module_1();
+    cout<<n1.Module_2()<<endl;
+    cout<<n1.Argument()<<endl;
 
-
+    n5 = n1 + n2;
+    n5.Print();
 
 }
