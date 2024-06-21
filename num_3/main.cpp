@@ -7,13 +7,14 @@ class Complex{
 
 public:
 Complex(double deist, double mnim);
-Complex operator+(Complex ob);
-Complex operator-(Complex ob);
-Complex operator/(Complex ob);
-double Module_2();
-void Module_1();
-double Argument();
-void Print();
+Complex():a(0), b(0){};
+Complex operator+(Complex const &ob)const;
+Complex operator-(Complex const &ob)const;
+Complex operator/(Complex const &ob)const;
+double Module_2()const;
+void Module_1()const;
+double Argument()const;
+void Print()const;
 double get_a(){return a;}
 double get_b(){return b;}
 void set_a(double value_a){
@@ -24,47 +25,47 @@ void set_b(double value_b){
     }
 };
 
-Complex::Complex(double deist=0, double mnim=0){
+Complex::Complex(double deist, double mnim){
         a=deist;
         b=mnim;
 }
 
-Complex Complex::operator+(Complex ob){
+Complex Complex::operator+(Complex const &ob)const{
         Complex result(0,0);
         result.a=a+ob.a;
         result.b=b+ob.b;
         return result;
 }
 
-Complex Complex::operator-(Complex ob){
+Complex Complex::operator-(Complex const &ob)const{
         Complex result;
         result.a=a-ob.a;
         result.b=b-ob.b;
         return result;
 }
 
-Complex Complex::operator/(Complex ob){
+Complex Complex::operator/(Complex const &ob)const{
         Complex result;
         result.a = (a*ob.a + b*ob.b)/pow(ob.a, 2)+pow(ob.a, 2);
         result.b = (ob.a*b - a*ob.b)/pow(ob.a, 2)+pow(ob.b, 2);
         return result;
     }
 
-double Complex::Module_2(){
+double Complex::Module_2()const{
         double i=pow(a, 2)+pow(b, 2);
         return sqrt(i);
 }
 
-void Complex::Module_1(){
+void Complex::Module_1()const{
         double i=pow(a, 2)+pow(b, 2);
         cout<<sqrt(i)<<endl;
 }
 
-double Complex::Argument(){
+double Complex::Argument()const{
         return atan(a/b);
 }
 
-void Complex::Print(){
+void Complex::Print()const{
         cout<<a<<endl;
         cout<<b<<endl;
 }
